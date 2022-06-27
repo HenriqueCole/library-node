@@ -1,0 +1,27 @@
+{
+  "name": "atividade_avaliativa_biblioteca_henrique_cole",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenriqueCole/atividade_avaliativa_biblioteca_henrique_cole.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HenriqueCole/atividade_avaliativa_biblioteca_henrique_cole/issues"
+  },
+  "homepage": "https://github.com/HenriqueCole/atividade_avaliativa_biblioteca_henrique_cole#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "firebase": "^9.8.4",
+    "firebase-admin": "^11.0.0",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.18"
+  }
+}
