@@ -10,7 +10,7 @@ async function addAuthor(){
     name: 'John Doe',
     age: '30'
   }
-  const savedAuthor = await crud.save('people', null, author);
+  const savedAuthor = await crud.save('people', 1, author);
   console.log(savedAuthor);
 }
 
