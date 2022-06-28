@@ -7,4 +7,8 @@ router.get('/authors', (req, res) => {
     res.send('Hello authors!');
 });
 
+router.post('/authors', (req, res) =>{
+    authorsHandler.addAuthors(req.body);
+})
+
 module.exports = router;

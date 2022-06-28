@@ -1,21 +1,11 @@
-//handler will manipulate the database
+const crud = require("../../crud")
 
-
-class Author {
-    constructor(id, firstName, lasName){
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lasName;
-    }
-}
-
-
-function searchAuthors() {
-
+function addAuthors() {
+    crud.get("authors")
 }
 
 
 
 module.exports = {
-    searchAuthors
+    addAuthors
 }
