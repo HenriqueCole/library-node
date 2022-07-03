@@ -30,10 +30,12 @@ router.post("/clients/:clientId/books", async (req, res) => {
     .rentBookToClient(req.params.clientId, req.body)
     .then((result) => {
       res.status(200).json(result);
-    })
-    .catch((err) => {
+    }
+    ).catch((err) => {
       res.status(500).json(err);
-    });
+    }
+    );
+
 });
 
 router.get("/clients/:clientId/books", async (req, res) => {

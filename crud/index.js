@@ -63,13 +63,6 @@ async function postBooks(tableName, id, data) {
   }
 }
 
-async function updateBookStatusToRented(tableName, id) {
-  const book = await getById(tableName, id);
-  book.status = "rented";
-  const updatedBook = await setDoc(doc(db, tableName, id), book);
-  return updatedBook;
-}
-
 async function get(tableName) {
   const tableRef = collection(db, tableName);
 
@@ -108,11 +101,17 @@ async function remove(tableName, id) {
   };
 }
 
+// async function updateStatus(tableName, id) {
+//   const book = await getById(tableName, id);
+//   book.status = "rented";
+//   const updatedBook = await setDoc(doc(db, tableName, id), book);
+//   return updatedBook;
+// }
+
 module.exports = {
   post,
   postBooks,
-  updateBookStatusToRented,
   get,
   getById,
-  remove,
+  remove
 };
