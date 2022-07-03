@@ -1,16 +1,16 @@
 const crud = require('./crud');
 
 async function searchDatas(){
-  const datas = await crud.get('people');
+  const datas = await crud.get('authors');
   console.log(datas);
 }
 
 async function addAuthor(){
   const author = {
-    name: 'John Doe',
-    age: '30'
+    name: 'Henrique Cole',
+    age: '17'
   }
-  const savedAuthor = await crud.save('people', null, author);
+  const savedAuthor = await crud.post('authors', null, author);
   console.log(savedAuthor);
 }
 

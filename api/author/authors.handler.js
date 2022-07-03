@@ -1,7 +1,8 @@
 const crud = require("../../crud")
 
-function addAuthors() {
-    crud.get("authors")
+async function addAuthors(authors) {
+    const savedAuthor = await crud.post("authors", null, authors);
+    return savedAuthor;
 }
 
 

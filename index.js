@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 
-const authorsRoute = require('./routes/authors-routes');
-const booksRoute = require('./routes/books-routes');
-const clientsRoute = require('./routes/clients-routes');
-const publishersRoute = require('./routes/publishers-routes');
+const authorsRoute = require('./api/author/authors.controller');
+const booksRoute = require('./api/book/books.controller');
+const clientsRoute = require('./api/client/clients.controller');
+const publishersRoute = require('./api/publisher/publishers.controller');
 
 const app = express();
 app.use(express.json());

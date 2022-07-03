@@ -26,7 +26,8 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore();
 
-async function save(tableName, id, data) {
+
+async function post(tableName, id, data) {
   if (id) {
     const referenceEntity = await setDoc(doc(db, tableName, id), data);
     const savedData = {
@@ -43,6 +44,8 @@ async function save(tableName, id, data) {
     return savedData;
   }
 }
+
+
 
 async function get(tableName) {
   const tableRef = collection(db, tableName);
@@ -83,7 +86,7 @@ async function remove(tableName, id){
 }
 
 module.exports = {
-  save,
+  post,
   get,
   getById,
   remove
