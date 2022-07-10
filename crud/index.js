@@ -101,6 +101,22 @@ async function remove(tableName, id) {
   };
 }
 
+async function put(tableName, id, data) {
+  const docRef = doc(db, tableName, id);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+    const updatedData = {
+      ...docSnap.data(),
+      ...data,
+    };
+    const updatedDoc = await setDoc(docRef, updatedData);
+    return updatedDoc.data();
+  } else {
+    return new Error("Not found");
+  }
+}
+
 // async function updateStatus(tableName, id) {
 //   const book = await getById(tableName, id);
 //   book.status = "rented";
@@ -113,5 +129,6 @@ module.exports = {
   postBooks,
   get,
   getById,
-  remove
+  remove,
+  put
 };

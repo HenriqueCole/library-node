@@ -10,11 +10,6 @@ async function getClients() {
   return clients;
 }
 
-async function rentBookToClient(clientId, bookId) {
-  const rentedBook = await crud.post(`clients/${clientId}/books`, null, bookId);
-  return rentedBook;
-}
-
 async function getBooksByClientId(clientId) {
   const booksRented = await crud.get(`clients/${clientId}/books`);
   return booksRented;
@@ -27,7 +22,6 @@ async function getClientById(clientId) {
 
 module.exports = {
   addClients,
-  rentBookToClient,
   getBooksByClientId,
   getClients,
   getClientById
