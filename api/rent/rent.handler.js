@@ -7,9 +7,9 @@ async function getRents() {
 
 //data is the information inserted on postman
 //dataStatusClientId is the information from the database
-
 async function addRent(data) {
   const rents = await getRents();
+  
 
   let rentVerification = rents.some((dataStatusClientId) => {
     if (
@@ -23,7 +23,9 @@ async function addRent(data) {
   });
 
   if (rentVerification == true) {
-    throw { Error: "You can't rent more than one book at the same time." };
+    throw {
+      Error: "You can't rent a book because you already have a book rented.",
+    };
   }
 
   const rent = {
@@ -34,6 +36,7 @@ async function addRent(data) {
   rent.status = "active";
 
   const savedRent = await crud.post("rents", null, rent);
+
   return savedRent;
 }
 
