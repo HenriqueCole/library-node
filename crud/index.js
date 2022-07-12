@@ -44,6 +44,7 @@ async function post(tableName, id, data) {
   }
 }
 
+//remove this function later
 async function postBooks(tableName, id, data) {
   if (id) {
     const referenceEntity = await setDoc(doc(db, tableName, id), data);
@@ -117,12 +118,6 @@ async function put(tableName, id, data) {
   }
 }
 
-// async function updateStatus(tableName, id) {
-//   const book = await getById(tableName, id);
-//   book.status = "rented";
-//   const updatedBook = await setDoc(doc(db, tableName, id), book);
-//   return updatedBook;
-// }
 
 module.exports = {
   post,
