@@ -1,12 +1,18 @@
 const crud = require("../../crud");
 
 async function addBooks(books) {
-  const savedBooks = await crud.postBooks("books", null, books);
-  return savedBooks;
+  const book = {
+    title: books.title,
+    genre: books.genre,
+    year: books.year,
+    status: "available"
+  };
+  const savedBook = await crud.post("books", null, book);
+  return savedBook;
 }
 
 async function updateBooks(books) {
-  const savedBooks = await crud.postBooks("books", books.id, books);
+  const savedBooks = await crud.put("books", books.id, books);
   return savedBooks;
 }
 
@@ -31,5 +37,6 @@ module.exports = {
   addBooks,
   getBooks,
   getBookById,
-  updateStatus
+  updateStatus,
+  updateBooks
 };

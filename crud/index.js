@@ -44,26 +44,6 @@ async function post(tableName, id, data) {
   }
 }
 
-//remove this function later
-async function postBooks(tableName, id, data) {
-  if (id) {
-    const referenceEntity = await setDoc(doc(db, tableName, id), data);
-    const savedData = {
-      ...data,
-      id: id,
-    };
-    return savedData;
-  } else {
-    data.status = "available";
-    const referenceEntity = await addDoc(collection(db, tableName), data);
-    const savedData = {
-      ...data,
-      id: referenceEntity.id,
-    };
-    return savedData;
-  }
-}
-
 async function get(tableName) {
   const tableRef = collection(db, tableName);
 
@@ -121,7 +101,6 @@ async function put(tableName, id, data) {
 
 module.exports = {
   post,
-  postBooks,
   get,
   getById,
   remove,
