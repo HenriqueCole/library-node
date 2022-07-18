@@ -11,9 +11,9 @@ async function addBooks(books) {
   return savedBook;
 }
 
-async function updateBooks(books) {
-  const savedBooks = await crud.put("books", books.id, books);
-  return savedBooks;
+async function updateBooks(book, id) {
+  const updatedBook = await crud.post("books", id, book);
+  return updatedBook;
 }
 
 async function getBooks() {
@@ -29,7 +29,7 @@ async function getBookById(bookId) {
 async function updateStatus(id, status) {
   const book = await getBookById(id);
   book.status = status;
-  await updateBooks(book);
+  await updateBooks(book, id);
   return book;
 }
 

@@ -40,7 +40,26 @@ async function addRent(data) {
   return savedRent;
 }
 
+async function getRentById(id) {
+  const rent = await crud.getById("rents", id);
+  return rent;
+}
+
+async function updateRentStatus(id, status) {
+  const rent = await getRentById(id);
+  rent.status = status;
+  await updateRent(rent, id);
+  return rent;
+}
+
+async function updateRent(rent, id) {
+  const updatedRent = await crud.post("rents", id, rent);
+  return updatedRent;
+}
+
 module.exports = {
   getRents,
   addRent,
+  updateRentStatus,
+  updateRent
 };

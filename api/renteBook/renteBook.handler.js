@@ -10,9 +10,24 @@ async function getRentedBooks() {
 
 async function renteBook(data) {
   const books = await booksHandler.getBooks();
+  const rents = await rentHandler.getRents();
+
+  let rentVerification = rents.some((rent) => {
+    if (rent.id == data.rentId && rent.status === "active") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  if (rentVerification == true) {
+    throw {
+      Error: "YOU ALREADY HAVE A BOOK RENTED",
+    };
+  }
 
   let bookVerification = books.some((book) => {
-    if (book.id != data.bookId && book.status === "rented") {
+    if (book.id == data.listBooksIds && book.status === "rented") {
       return true;
     } else {
       return false;
@@ -24,13 +39,22 @@ async function renteBook(data) {
       Error: "BOOK ALREADY RENTED",
     };
   }
- 
-  const newBook = {
-    bookId: data.bookId,
-    status: "rented"
+
+  const rent = {
+    rentId: data.rentId,
+    status: "active",
   };
+
+  const book = {
+    bookId: data.listBooksIds,
+    status: "rented",
+  };
+
+  const savedBook = await booksHandler.updateStatus(book.bookId, book.status);
+  const savedRent = await rentHandler.updateRentStatus(rent.rentId, rent.status);
   
-  const savedBook = await booksHandler.updateStatus(newBook)
+  const savedRentBook = await crud.post("rentedBooks", null, data);
+  return savedRentBook;
 }
 
 async function getRentedBookId(id) {
