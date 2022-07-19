@@ -24,5 +24,5 @@ module.exports = {
   addClients,
   getBooksByClientId,
   getClients,
-  getClientById
+  getClientById,
 };

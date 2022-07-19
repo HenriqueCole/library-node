@@ -26,14 +26,14 @@ router.get("/clients", async (req, res) => {
 });
 
 router.get("/clients/:clientId", async (req, res) => {
-    clientsHandler
-      .getClientById(req.params.clientId)
-      .then((result) => {
-        res.status(200).json(result);
-      })
-      .catch((err) => {
-        res.status(500).json(err);
-      });
-  });
+  clientsHandler
+    .getClientById(req.params.clientId)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
 
 module.exports = router;

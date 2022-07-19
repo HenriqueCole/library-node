@@ -23,10 +23,9 @@ async function addBooks(data) {
           Error: "You can't add a book because the author doesn't exist.",
         };
       }
-    }
-    );
+    });
   }
-  
+
   const savedBook = await crud.post("books", null, book);
   return savedBook;
 }
