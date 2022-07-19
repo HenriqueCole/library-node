@@ -82,10 +82,9 @@ async function remove(tableName, id) {
   };
 }
 
-
 module.exports = {
   post,
   get,
   getById,
-  remove
+  remove,
 };

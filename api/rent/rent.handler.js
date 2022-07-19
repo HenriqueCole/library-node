@@ -9,7 +9,6 @@ async function getRents() {
 //dataStatusClientId is the information from the database
 async function addRent(data) {
   const rents = await getRents();
-  
 
   let rentVerification = rents.some((dataStatusClientId) => {
     if (
@@ -61,5 +60,5 @@ module.exports = {
   getRents,
   addRent,
   updateRentStatus,
-  updateRent
+  updateRent,
 };

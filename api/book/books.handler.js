@@ -5,7 +5,7 @@ async function addBooks(books) {
     title: books.title,
     genre: books.genre,
     year: books.year,
-    status: "available"
+    status: "available",
   };
   const savedBook = await crud.post("books", null, book);
   return savedBook;
@@ -38,5 +38,5 @@ module.exports = {
   getBooks,
   getBookById,
   updateStatus,
-  updateBooks
+  updateBooks,
 };
