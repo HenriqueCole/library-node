@@ -36,4 +36,26 @@ router.get("/clients/:clientId", async (req, res) => {
     });
 });
 
+router.put("/clients/:clientId", async (req, res) => {
+  clientsHandler
+    .updateClient(req.params.clientId, req.body)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
+router.delete("/clients/:clientId", async (req, res) => {
+  clientsHandler
+    .deleteClient(req.params.clientId)
+    .then((result) => {
+      res.status(200).json(result);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
+});
+
 module.exports = router;

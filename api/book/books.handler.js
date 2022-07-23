@@ -52,10 +52,16 @@ async function updateStatus(id, status) {
   return book;
 }
 
+async function deleteBook(bookId) {
+  const book = await crud.remove("books", bookId);
+  return book;
+}
+
 module.exports = {
   addBooks,
   getBooks,
   getBookById,
   updateStatus,
   updateBooks,
+  deleteBook,
 };

@@ -8,7 +8,7 @@ async function getRentedBooks() {
   return renteBooks;
 }
 
-async function renteBook(data) {
+async function rentBook(data) {
   const books = await booksHandler.getBooks();
   const rents = await rentHandler.getRents();
 
@@ -61,6 +61,6 @@ async function getRentedBookId(id) {
 
 module.exports = {
   getRentedBooks,
-  renteBook,
+  rentBook,
   getRentedBookId,
 };

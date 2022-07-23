@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const renteBookHandler = require("./renteBook.handler");
+const renteBookHandler = require("./rentBook.handler");
 
 router.get("/rentedBooks", async (req, res) => {
   renteBookHandler
@@ -16,7 +16,7 @@ router.get("/rentedBooks", async (req, res) => {
 
 router.post("/rentedBooks", async (req, res) => {
   renteBookHandler
-    .renteBook(req.body)
+    .rentBook(req.body)
     .then((result) => {
       res.status(200).json(result);
     })

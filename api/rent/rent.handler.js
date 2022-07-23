@@ -29,10 +29,10 @@ async function addRent(data) {
 
   const rent = {
     clientId: data.clientId,
-    status: "active",
+    status: "inactive",
   };
 
-  rent.status = "active";
+  rent.status = "inactive";
 
   const savedRent = await crud.post("rents", null, rent);
 
@@ -56,9 +56,17 @@ async function updateRent(rent, id) {
   return updatedRent;
 }
 
+async function deleteRent(id) {
+  const rent = await getRentById(id);
+  await crud.delete("rents", id);
+  return rent;
+}
+
 module.exports = {
   getRents,
   addRent,
   updateRentStatus,
   updateRent,
+  getRentById,
+  deleteRent,
 };

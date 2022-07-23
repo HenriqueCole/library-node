@@ -20,9 +20,21 @@ async function getClientById(clientId) {
   return client;
 }
 
+async function updateClient(clientId, client) {
+  const updatedClient = await crud.post("clients", clientId, client);
+  return updatedClient;
+}
+
+async function deleteClient(clientId) {
+  const client = await crud.remove("clients", clientId);
+  return client;
+}
+
 module.exports = {
   addClients,
   getBooksByClientId,
   getClients,
   getClientById,
+  updateClient,
+  deleteClient,
 };
