@@ -5,7 +5,7 @@ const authorsRoute = require("./api/author/authors.controller");
 const booksRoute = require("./api/book/books.controller");
 const clientsRoute = require("./api/client/clients.controller");
 const publishersRoute = require("./api/publisher/publishers.controller");
-const rentBookRoute = require("./api/rentBook/rentBook.controller"); 
+const rentBookRoute = require("./api/rentBook/rentBook.controller");
 const rentRoute = require("./api/rent/rent.controller");
 const returnBookRoute = require("./api/returnBook/returnBook.controller");
 
